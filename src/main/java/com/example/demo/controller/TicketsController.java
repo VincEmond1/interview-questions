@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.controller.response.TicketsResponseAssembler;
 import com.example.demo.controller.response.TicketsResponseDto;
 import com.example.demo.domain.Ticket;
 import com.example.demo.service.TicketsService;
@@ -17,8 +18,12 @@ public class TicketsController {
     @Autowired
     private final TicketsService service;
 
-    public TicketsController(TicketsService service) {
+    @Autowired
+    private final TicketsResponseAssembler responseAssembler;
+
+    public TicketsController(TicketsService service, TicketsResponseAssembler responseAssembler) {
         this.service = service;
+        this.responseAssembler = responseAssembler;
     }
 
     @GET
@@ -26,6 +31,6 @@ public class TicketsController {
     public TicketsResponseDto getTickets(String userId) {
         List<Ticket> tickets = service.findTickets(userId);
 
-        return null;
+        return responseAssembler.assemble(tickets);
     }
 }
