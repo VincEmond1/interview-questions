@@ -18,8 +18,10 @@ public class TicketsResponseAssembler {
 
     public TicketsResponseDto assemble(List<Ticket> tickets) {
         var ticketsDtos = tickets.stream()
-            .map(ticket -> new TicketResponseDto(ticket.getEventName(), ticket.getEventDate(),
-                                                 totalPriceCalculator.computeTotalPrice(ticket), ticket.getSeatRow(),
+            .map(ticket -> new TicketResponseDto(ticket.getEventName(),
+                                                 ticket.getEventDate(),
+                                                 totalPriceCalculator.computeTotalPrice(ticket),
+                                                 ticket.getSeatRow(),
                                                  ticket.getSeatNumber()))
             .toList();
 
