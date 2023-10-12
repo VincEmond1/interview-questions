@@ -1,7 +1,6 @@
 package com.example.demo.controller.response;
 
 import com.example.demo.domain.Ticket;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -9,11 +8,10 @@ import java.util.List;
 @Component
 public class TicketsResponseAssembler {
 
-    @Autowired
     private final TotalPriceCalculator totalPriceCalculator;
 
-    public TicketsResponseAssembler(TotalPriceCalculator totalPriceCalculator) {
-        this.totalPriceCalculator = totalPriceCalculator;
+    public TicketsResponseAssembler() {
+        this.totalPriceCalculator = new TotalPriceCalculator();
     }
 
     public TicketsResponseDto assemble(List<Ticket> tickets) {
