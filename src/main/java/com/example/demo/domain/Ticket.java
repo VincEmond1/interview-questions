@@ -30,4 +30,32 @@ public class Ticket {
         this.seatRow = seatRow;
         this.seatNumber = seatNumber;
     }
+
+    public String getEventName() {
+        return eventName;
+    }
+
+    public Instant getEventDate() {
+        return eventDate;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public int getTaxPercentage() {
+        return taxPercentage;
+    }
+
+    public List<Item> getAdditionalItems() {
+        return additionalItems;
+    }
+
+    public String getSeatRow() {
+        return seatRow;
+    }
+
+    public String getSeatNumber() {
+        return seatNumber;
+    }
 }
